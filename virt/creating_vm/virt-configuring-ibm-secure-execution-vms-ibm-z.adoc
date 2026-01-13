@@ -29,3 +29,5 @@ endif::[]
 include::modules/virt-enabling-vms-ibm-secure-execution-ibm-z.adoc[leveloffset=+1]
 
 include::modules/virt-launching-ibm-secure-execution-vm-ibm-z.adoc[leveloffset=+1]
+
+include::modules/virt-creating-bootable-encrypted-ibm-secure-execution-vm-image-ibm-z.adoc[leveloffset=+1]
