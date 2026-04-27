@@ -47,7 +47,7 @@ spec:
 ----
 ** `spec.permittedHostDevices` specifies the host devices that are permitted to be used in the cluster.
 ** `spec.permittedHostDevices.pciHostDevices` specifies the list of PCI devices available on the node.
-** `spec.permittedHostDevices.pciHostDevices.pciDeviceSelector` specifies the `vendor-ID` and the `device-ID` required to identify the PCI device.
+** `spec.permittedHostDevices.pciHostDevices.pciDeviceSelector` specifies the vendor ID and the device ID required to identify the PCI device.
 ** `spec.permittedHostDevices.pciHostDevices.resourceName` specifies the name of a PCI host device.
 ** `spec.permittedHostDevices.pciHostDevices.externalResourceProvider` is an optional setting. Setting this field to `true` indicates that the resource is provided by an external device plugin. {VirtProductName} allows the usage of this device in the cluster but leaves the allocation and monitoring to an external device plugin.
 +
