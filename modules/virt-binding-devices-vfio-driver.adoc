@@ -18,12 +18,18 @@ The `MachineConfig` Operator generates the `/etc/modprobe.d/vfio.conf` on the no
 
 .Procedure
 
-. Run the `lspci` command to obtain the `vendor-ID` and the `device-ID` for the PCI device.
+. Run the `lspci` command with the name of the GPU accelerator to obtain the `vendor-ID` and the `device-ID` for the PCI device.
++
+[NOTE]
+====
+Currently, NVIDIA GPU is supported on `x86` and IBM Spyre is supported on `s390x` architecture.
+====
 +
 [source,terminal]
 ----
-$ lspci -nnv | grep -i nvidia
+$ lspci -nnv | grep -i <gpu_accelerator>
 ----
+** `<gpu_accelerator>`: Valid values are `nvdia` and `spyre`.
 +
 Example output:
 +
@@ -56,25 +62,26 @@ storage:
     overwrite: true
     contents:
       inline: |
-        options vfio-pci ids=10de:1eb8 <2>
-  - path: /etc/modules-load.d/vfio-pci.conf <3>
+        options vfio-pci ids=<vendor_id>:<device_id>
+  - path: /etc/modules-load.d/vfio-pci.conf
     mode: 0644
     overwrite: true
     contents:
       inline: vfio-pci
 ----
-** `metadata.labels.machineconfiguration.openshift.io/role: worker` specifies that the new kernel argument is applied only to worker nodes.
-** `storage.files.contents.inline`, where the path is `/etc/modprobe.d/vfio.conf`, specifies the previously determined `vendor-ID` value (`10de`) and the `device-ID` value (`1eb8`) to bind a single device to the VFIO driver. You can add a list of multiple devices with their vendor and device information.
-** `storage.files.path`, where the `contents.inline` is `vfio-pci`, specifies the file that loads the `vfio-pci` kernel module on the worker nodes.
+** `metadata.labels.machineconfiguration.openshift.io/role: worker` specifies that the new kernel argument is applied only to compute nodes.
+** `storage.files.contents.inline`, where the path is `/etc/modprobe.d/vfio.conf`, specifies the previously determined hexadecimal vendor ID and device ID values to bind a device to the VFIO driver. You can add a list of multiple devices with their vendor and device information.
 
-. Use Butane to generate a `MachineConfig` object file, `100-worker-vfiopci.yaml`, containing the configuration to be delivered to the worker nodes:
+** `storage.files.path`, where the `contents.inline` is `vfio-pci`, specifies the file that loads the `vfio-pci` kernel module on the compute nodes.
+
+. Use Butane to generate a `MachineConfig` object file, `100-worker-vfiopci.yaml`, containing the configuration to be delivered to the compute nodes:
 +
 [source,terminal]
 ----
 $ butane 100-worker-vfiopci.bu -o 100-worker-vfiopci.yaml
 ----
 
-. Apply the `MachineConfig` object to the worker nodes:
+. Apply the `MachineConfig` object to the compute nodes:
 +
 [source,terminal]
 ----
@@ -109,7 +116,7 @@ NAME                             GENERATEDBYCONTROLLER                      IGNI
 +
 [source,terminal]
 ----
-$ lspci -nnk -d 10de:
+$ lspci -nnk -d <vendor_id>:
 ----
 The output confirms that the VFIO driver is being used.
 +

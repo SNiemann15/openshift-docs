@@ -55,6 +55,23 @@ spec:
 ====
 The above example snippet shows two PCI host devices that are named `nvidia.com/GV100GL_Tesla_V100` and `nvidia.com/TU104GL_Tesla_T4` added to the list of permitted host devices in the `HyperConverged` CR. These devices have been tested and verified to work with {VirtProductName}.
 ====
++
+Example configuration file for an {ibm-name} Spyre device on 's390x' architecture:
++
+[source,yaml,subs="attributes+"]
+----
+apiVersion: hco.kubevirt.io/v1beta1
+kind: HyperConverged
+metadata:
+  name: kubevirt-hyperconverged
+  namespace: {CNVNamespace}
+spec:
+  permittedHostDevices:
+    pciHostDevices:
+    - pciDeviceSelector: "1014:06a8"
+      resourceName: "ibm.com/spyre"
+# ...
+----
 
 . Save your changes and exit the editor.
 
@@ -98,3 +115,9 @@ Allocatable:
   intel.com/qat:                  1
   pods:                           250
 ----
+
++
+[NOTE]
+====
+When using an {ibm-name} Spyre device on `s390x` architecture the allocated device is shown as follows: `ibm.com/spyre:         1`.
+====
