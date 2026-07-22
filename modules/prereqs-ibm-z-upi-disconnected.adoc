@@ -10,18 +10,18 @@
 [role="_abstract"]
 Before beginning your cluster installation, you must complete prerequisite tasks that prepare your environment.
 
-* You have completed the tasks in xref:../../../installing/installing_ibm_z/upi/upi-ibm-z-preparing-to-install.adoc#upi-ibm-z-preparing-to-install[Preparing to install a cluster on {ibm-z-title} using user-provisioned infrastructure].
-* You reviewed details about the xref:../../../architecture/architecture-installation.adoc#architecture-installation[{product-title} installation and update] processes.
-* You read the documentation on xref:../../../installing/overview/installing-preparing.adoc#installing-preparing[selecting a cluster installation method and preparing it for users].
-* You xref:../../../disconnected/installing-mirroring-installation-images.adoc#installing-mirroring-installation-images[mirrored the images for a disconnected installation] to your registry and obtained the `imageContentSources` data for your version of {product-title}.
+* You have completed the tasks in preparing to install a cluster on {ibm-z-title} using user-provisioned infrastructure.
+* You reviewed details about the {product-title} installation and update processes.
+* You read the documentation on selecting a cluster installation method and preparing it for users.
+* You mirrored the images for a disconnected installation to your registry and obtained the `imageContentSources` data for your version of {product-title}.
 * Before you begin the installation process, you must move or remove any existing installation files. This ensures that the required installation files are created and updated during the installation process.
 +
 [IMPORTANT]
 ====
 Ensure that installation steps are done from a machine with access to the installation media.
 ====
-* You provisioned xref:../../../storage/persistent_storage/persistent-storage-ocs.adoc#persistent-storage-ocs[persistent storage by using {rh-storage}] or other supported storage protocols for your cluster. To deploy a private image registry, you must set up persistent storage with `ReadWriteMany` access.
-* If you use a firewall and plan to use the Telemetry service, you xref:../../../installing/install_config/configuring-firewall.adoc#configuring-firewall-module_configuring-firewall[configured the firewall to allow the sites] that your cluster requires access to.
+* You provisioned persistent storage by using {rh-storage} or other supported storage protocols for your cluster. To deploy a private image registry, you must set up persistent storage with `ReadWriteMany` access.
+* If you use a firewall and plan to use the Telemetry service, you configured the firewall to allow the sites that your cluster requires access to.
 +
 [NOTE]
 ====

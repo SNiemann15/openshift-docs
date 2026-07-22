@@ -16,6 +16,14 @@ While this document refers only to {ibm-z-name}, all information in it also appl
 
 include::modules/prereqs-ibm-z-kvm-upi.adoc[leveloffset=+1]
 
+[role="_additional-resources"]
+.Additional resources
+* xref:../../../installing/installing_ibm_z/upi/upi-ibm-z-preparing-to-install.adoc#upi-ibm-z-preparing-to-install[Preparing to install a cluster on {ibm-z-title} using user-provisioned infrastructure]
+* xref:../../../architecture/architecture-installation.adoc#architecture-installation[{product-title} installation and update]
+* xref:../../../installing/overview/installing-preparing.adoc#installing-preparing[Selecting a cluster installation method and preparing it for users]
+* xref:../../../storage/persistent_storage/persistent-storage-ocs.adoc#persistent-storage-ocs[Persistent storage using {rh-storage}]
+* xref:../../../installing/install_config/configuring-firewall.adoc#configuring-firewall-module_configuring-firewall[Configuring your firewall]
+
 include::modules/installation-infrastructure-user-infra.adoc[leveloffset=+1]
 
 include::modules/installation-load-balancing-user-infra-example.adoc[leveloffset=+2]
