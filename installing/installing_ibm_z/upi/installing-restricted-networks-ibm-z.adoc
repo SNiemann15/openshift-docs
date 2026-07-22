@@ -25,8 +25,7 @@ include::modules/installation-load-balancing-user-infra-example.adoc[leveloffset
 include::modules/installation-initializing-manual.adoc[leveloffset=+1]
 
 [role="_additional-resources"]
-[id="additional-resources_install-init_{context}"]
-== Additional resources
+.Additional resources
 * xref:../../../installing/installing_ibm_z/installation-config-parameters-ibm-z.adoc#installation-config-parameters-ibm-z[Installation configuration parameters for {ibm-z-name}]
 
 include::modules/installation-bare-metal-config-yaml.adoc[leveloffset=+2]
@@ -46,8 +45,7 @@ include::modules/ibm-z-configure-hw-based-cex-encryption.adoc[leveloffset=+2]
 include::modules/ibm-z-configure-nbde-with-static-ip.adoc[leveloffset=+2]
 
 [role="_additional-resources"]
-[id="additional-resources_nbde_{context}"]
-== Additional resources
+.Additional resources
 
 * xref:../../../installing/install_config/installing-customizing.adoc#installation-special-config-butane_installing-customizing[Creating machine configs with Butane]
 
@@ -56,8 +54,7 @@ include::modules/installation-ibm-z-user-infra-machines-iso.adoc[leveloffset=+1]
 include::modules/installation-user-infra-machines-static-network.adoc[leveloffset=+2]
 
 [role="_additional-resources"]
-[id="additional-resources_static-network_{context}"]
-== Additional resources
+.Additional resources
 
 * link:https://www.man7.org/linux/man-pages/man7/dracut.cmdline.7.html[`dracut.cmdline` manual page]
 
